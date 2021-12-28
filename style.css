@@ -90,14 +90,42 @@ section{
 }
 .nav-item{
     margin-right: 1.3rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.arrow{
+    width: 0;
+    height: 0;
+    border-top: 5px solid #000;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    transition: all 0.2s ease;
+}
+.nav-link.parent{
+    margin-right: 1rem;
+}
+.navbar-sub{
+    position: absolute;
+    left: 0;
+    top: 1.7rem;
+    z-index: 1;
+    display: none;
+    list-style: none;
+    background-color: #fff;
+}
+.nav-sub-item{
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem 0.75rem;
+}
+.nav-sub-link{
+    font-weight: 400;
 }
 .nav-link{
     color: #000 !important;
     text-transform: uppercase;
 }
-.nav-link:hover{
-    color: #5271FF !important;
-}
+
 .button{
     height: 100%;
     padding: 0.5rem 1rem;
@@ -177,18 +205,18 @@ section{
 .button.main-link{
     display: block;
     float: left;
-    padding: 1em 2em; 
+    padding: 0.5em 2em; 
     font-size: 1.5em;
     font-weight: 600;
     margin-bottom: 2rem;
+    border: 3px solid #5271FF;
 }
 .button.main-link:hover{
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
     background-color: #4864e2;
+    border-color: #4864e2;
 }
 .button.main-link.main-link2{
-    font-size: 1.25em;
-    padding: 0.75em 1.5em;
     margin-left: 2rem;
     border: 3px solid #1f2c63;
     background: none;
@@ -207,6 +235,10 @@ section{
 
 .offers{
     background-color: #F4F4F4;
+}
+.offers-left{
+    display: flex;
+    align-items: center;
 }
 .offers-list{
     margin-left: 2rem;
@@ -328,8 +360,13 @@ section{
     color: #fff;
     background-color: #5271FF;
 }
+.partner-left{
+    display: flex;
+    align-items: center;
+}
 .partner-image{
-    width: 100%;
+    width: 90%;
+    text-align: right;
     position: relative;
     border-radius: 100%;
     transition: all 0.2s ease;
@@ -419,9 +456,12 @@ section{
         margin-right: 0.6rem;
     }
 }
-@media (max-width:1130px){
-     body{
+@media (max-width:1140px){
+    body{
         font-size: 14px;
+    }
+    .nav-link{
+        font-size: 0.9em;
     }
 }
 @media (max-width:992px){
@@ -431,7 +471,7 @@ section{
     .button-header{
         display: none;
     }
-    .nav-link.dropdown-toggle{
+    .nav-link{
         padding: 1rem;
     }
 }
@@ -550,6 +590,9 @@ section{
     }
 }
 @media(max-width:460px){
+    section{
+        padding: 2rem 0rem;
+    }
     h2{
         font-size: 1.75em;
         font-weight: 600;
@@ -559,11 +602,7 @@ section{
         font-size: 1.25rem;
     }
 }
-@media(max-width:417px){
-    .circle__3{
-        top: 10rem;
-        right: 5rem;
-    }
+@media(max-width:440px){
     .main-buttons{
         flex-direction: column;
         align-items: start;
@@ -575,7 +614,12 @@ section{
     }
     .button.main-link.main-link2{
         margin-left: 0;
-        font-size: 1em;
+    }
+}
+@media(max-width:417px){
+    .circle__3{
+        top: 10rem;
+        right: 4.5rem;
     }
     .main-title{
         font-size: 1.75em;
@@ -608,4 +652,58 @@ section{
     .divider{
         height: 3rem;
     }
+}
+
+body.mouse .nav-item:hover .navbar-sub{
+    display: block;
+}
+body.mouse .navbar-sub{
+    padding-top: 1.5rem;
+}
+body.mouse .nav-item:hover .arrow{
+    transform: rotate(180deg);
+}
+body.mouse .nav-sub-link{
+    transition: all 0.2s ease;
+}
+body.mouse .nav-sub-link:hover{
+    color: #5271FF !important;
+}
+body.mouse .nav-item:hover .nav-link{
+    color: #5271FF !important;
+}
+body.mouse .nav-item:hover .arrow{
+    border-top: 5px solid #5271FF;
+}
+body.mouse .navbar-sub{
+    width: 200%;
+}
+body.touch .navbar{
+    width: 100%;
+}
+body.touch .nav-item{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0;
+}
+body.touch .navbar-sub.open{
+    display: block;
+}
+body.touch .nav-link{
+    color: #000;
+}
+body.touch .navbar-sub{
+    top: 2rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+body.touch .nav-sub-item{
+    padding: 0rem 0rem 1.5rem 0.5rem;
+}
+body.touch .nav-link.active{
+    color: #5271FF !important;
+}
+body.touch .arrow.active{
+    border-top: 5px solid #5271FF;
+    transform: rotate(180deg);
 }
