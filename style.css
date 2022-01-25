@@ -493,10 +493,9 @@ section{
         padding: 0 !important;
     }
     .nav-link{
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        display: inline-block;
+        padding: 1rem 1.5rem!important;
         font-size: 0.9em;
-        padding-left: 1.5rem !important;
     }
     .nav-item{
         margin: 0;
